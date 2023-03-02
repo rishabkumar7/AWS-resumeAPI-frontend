@@ -5,7 +5,7 @@ const ResumeCard = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    axios.get('https://njvqvf7mk72umhtipwwvg2kipa0hpcpk.lambda-url.ca-central-1.on.aws')
+    axios.get('https://api.github.com/users/rishabkumar7')
       .then(response => {
         setUser(response.data);
       })
@@ -16,13 +16,13 @@ const ResumeCard = () => {
 
   return (
     <div className="card">
-      <img src={user.basics.avatar_url} className="card-img-top" alt="User avatar" />
+      <img src={user.avatar_url} className="card-img-top" alt="User avatar" />
         <div className="card-body">
-        <h5 className="card-title">{user.basics.name}</h5>
-        <p className="card-text">{user.basics.label}</p>
-        <p className="card-text">{user.basics.summary}</p>
-        <a href={user.basics.website} className="btn btn-primary">View profile</a>
-  </div>
+        <h5 className="card-title">{user.name}</h5>
+        <p className="card-text">{user.bio}</p>
+        <p className="card-text">{user.company}</p>
+        <a href={user.blog} className="btn btn-primary">View profile</a>
+        </div>
     </div>
   );
 };
